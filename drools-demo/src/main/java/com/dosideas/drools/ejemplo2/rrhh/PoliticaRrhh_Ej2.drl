@@ -1,0 +1,33 @@
+package com.dosideas.drools.ejemplo2.rrhh;
+
+import com.dosideas.drools.ejemplo2.rrhh.Empleado;
+import java.math.BigDecimal;
+
+expander PoliticaRrhh_Ej2.dsl
+
+rule "Ascender a Programador"
+    when
+        El promedio de conocimientos esta entre 8 y 10
+    then
+        Ascender a "Programador"
+        Imprimir "Programador": nombre
+        El salario es de 1000 pesos
+end
+
+rule "Ascender a Lider de Proyecto"
+    when
+        El promedio de conocimientos esta entre 4 y 7
+    then
+        Ascender a "Lider de Proyecto"
+        Imprimir "Lider de Proyecto": nombre
+        El salario es de 2000 pesos
+end
+
+rule "Ascender a Gerente"
+    when
+        El promedio de conocimientos esta entre 0 y 3
+    then
+        Ascender a "Gerente"
+        Imprimir "Gerente": nombre
+        El salario es de 3000 pesos 
+end

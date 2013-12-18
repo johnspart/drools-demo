@@ -1,0 +1,31 @@
+package com.dosideas.drools.ejemplo1.rrhh;
+
+import com.dosideas.drools.ejemplo1.rrhh.Empleado;
+import java.math.BigDecimal;
+
+rule "Programador"
+    when
+        empleado : Empleado(promedioConocimientos >= 8, promedioConocimientos <= 10)
+    then
+        System.out.println("Programador: " + empleado.getNombre());
+        empleado.setCargo("Programador");
+        empleado.setSalario(BigDecimal.valueOf(1000));
+end
+
+rule "Lider de Proyecto"
+    when
+        empleado : Empleado(promedioConocimientos >= 4, promedioConocimientos <= 7)
+    then
+        System.out.println("Lider de Proyecto: " + empleado.getNombre());
+        empleado.setCargo("Lider de Proyecto");
+        empleado.setSalario(BigDecimal.valueOf(2000));
+end
+
+rule "Gerente"
+    when
+        empleado : Empleado(promedioConocimientos >= 0, promedioConocimientos <= 3)
+    then
+        System.out.println("Gerente: " + empleado.getNombre());
+        empleado.setCargo("Gerente");
+        empleado.setSalario(BigDecimal.valueOf(3000));
+end
